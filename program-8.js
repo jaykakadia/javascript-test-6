@@ -9,7 +9,6 @@ function fetchWithTimeout(url, timeoutMs) {
   return Promise.race([fetch(url), timeout]);
 }
 
-// How to call it:
 fetchWithTimeout("https://jsonplaceholder.typicode.com/posts/1", 3000)
   .then((response) => response.json())
   .then((data) => console.log(data))
