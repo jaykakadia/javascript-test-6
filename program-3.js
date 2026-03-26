@@ -7,7 +7,11 @@ const url3 = "https://jsonplaceholder.typicode.com/posts/3";
 const arrOfUrls = [url1, url2, url3];
 
 function fetchAllData(arr) {
-  const promis = arr.map((url) => fetch(url).then((res) => res.json()));
+  const promis = [];
+  for (let i = 0; i < arr.length; i++) {
+    const url = arr[i];
+    promis.push(fetch(url).then((res) => res.json()));
+  }
   return Promise.all(promis);
 }
 
